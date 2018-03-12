@@ -1,0 +1,10 @@
+c:\users\ashim karki\source\repos\Fractal\Fractal\bin\Debug\Fractal.exe.config
+c:\users\ashim karki\source\repos\Fractal\Fractal\bin\Debug\Fractal.exe
+c:\users\ashim karki\source\repos\Fractal\Fractal\bin\Debug\Fractal.pdb
+c:\users\ashim karki\source\repos\Fractal\Fractal\obj\Debug\Fractal.csprojResolveAssemblyReference.cache
+c:\users\ashim karki\source\repos\Fractal\Fractal\obj\Debug\Fractal.Form1.resources
+c:\users\ashim karki\source\repos\Fractal\Fractal\obj\Debug\Fractal.Properties.Resources.resources
+c:\users\ashim karki\source\repos\Fractal\Fractal\obj\Debug\Fractal.csproj.GenerateResource.Cache
+c:\users\ashim karki\source\repos\Fractal\Fractal\obj\Debug\Fractal.csproj.CoreCompileInputs.cache
+c:\users\ashim karki\source\repos\Fractal\Fractal\obj\Debug\Fractal.exe
+c:\users\ashim karki\source\repos\Fractal\Fractal\obj\Debug\Fractal.pdb
