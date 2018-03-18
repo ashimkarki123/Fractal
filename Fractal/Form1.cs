@@ -25,6 +25,7 @@ namespace Fractal
         private Pen pen;
         private Graphics g1;
         private HSB HSBcol = new HSB();
+        private bool mouseClicked;
 
 
         public Form1()
@@ -46,6 +47,7 @@ namespace Fractal
             g1 = Graphics.FromImage(pics);
             finished = true;
         }
+
         public void destroy() // delete all instances 
         {
             if (finished)
@@ -67,6 +69,7 @@ namespace Fractal
             yzoom = (yende - ystart) / (double)y1;
             mandelbrot();
         }
+
         public void stop()
         {
         }
@@ -77,6 +80,8 @@ namespace Fractal
             Graphics obj = e.Graphics;
             obj.DrawImage(pics, new Point(0, 0));
         }
+
+
         public void update()
         {
             Graphics g = pictureBox1.CreateGraphics();
@@ -123,9 +128,10 @@ namespace Fractal
                     g1.DrawLine(pen, x, y, x + 1, y);
                 }
             }
-            
+
             action = true;
         }
+
         private float pointcolour(double xwert, double ywert) // color value from 0.0 to 1.0 by iterations
         {
             double r = 0.0, i = 0.0, m = 0.0;
@@ -140,6 +146,7 @@ namespace Fractal
             }
             return (float)j / (float)MAX;
         }
+
         private void initvalues() // reset start values
         {
             xstart = SX;
@@ -149,27 +156,37 @@ namespace Fractal
             if ((float)((xende - xstart) / (yende - ystart)) != xy)
                 xstart = xende - (yende - ystart) * (double)xy;
         }
-       
-       
+
+
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            mouseClicked = true;
+
             if (action)
-            {
-                xs = e.X;
-                ys = e.Y;
-            }
+                {
+                    xs = e.X;
+                    ys = e.Y;
+                }
+            
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (action)
+            if (mouseClicked)
             {
-                xe = e.X;
-                ye = e.Y;
-                rectangle = true;
 
-                update();
-                Refresh();
+
+                if (action)
+                {
+                    xe = e.X;
+                    ye = e.Y;
+                    rectangle = true;
+
+                    update();
+
+                    //update();
+                    //pictureBox1.Refresh();
+                }
             }
         }
 
@@ -209,11 +226,12 @@ namespace Fractal
                 yzoom = (yende - ystart) / (double)y1;
                 mandelbrot();
                 rectangle = false;
+
+                mouseClicked = false;
+
                 update();
+                
             }
         }
-
-
-
     }
 }
