@@ -33,7 +33,45 @@ namespace Fractal
             InitializeComponent();
             init();
             start();
+            pictureBox1.Cursor = Cursors.Cross;
 
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 copy = new Form1();
+            copy.Show();
+            
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Dispose();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog f = new SaveFileDialog();
+            f.Filter = "JPG(*.JPG) | *.JPG";
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                pics.Save(f.FileName);
+            }
         }
 
         public void init() // all instances will be prepared
@@ -46,6 +84,8 @@ namespace Fractal
             pics = new Bitmap(x1, y1);
             g1 = Graphics.FromImage(pics);
             finished = true;
+            
+
         }
 
         public void destroy() // delete all instances 
@@ -127,9 +167,8 @@ namespace Fractal
                     }
                     g1.DrawLine(pen, x, y, x + 1, y);
                 }
+                action = true;
             }
-
-            action = true;
         }
 
         private float pointcolour(double xwert, double ywert) // color value from 0.0 to 1.0 by iterations
@@ -183,9 +222,6 @@ namespace Fractal
                     rectangle = true;
 
                     update();
-
-                    //update();
-                    //pictureBox1.Refresh();
                 }
             }
         }
