@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,8 @@ namespace Fractal
 
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            stateSave(-2.025, -1.125, 0.6, 1.126);
+            Application.Restart();
 
         }
 
@@ -84,7 +87,12 @@ namespace Fractal
             pics = new Bitmap(x1, y1);
             g1 = Graphics.FromImage(pics);
             finished = true;
-            
+
+
+            SX = stateRead()[0];
+            SY = stateRead()[1];
+            EX = stateRead()[2];
+            EY = stateRead()[3];
 
         }
 
@@ -124,6 +132,7 @@ namespace Fractal
 
         public void update()
         {
+            stateSave(xstart, ystart, xende, yende);
             Graphics g = pictureBox1.CreateGraphics();
             g.DrawImage(pics, 0, 0);
             if (rectangle)
@@ -156,7 +165,7 @@ namespace Fractal
                     h = pointcolour(xstart + xzoom * (double)x, ystart + yzoom * (double)y); // color value
                     if (h != alt)
                     {
-                        b = 1.0f - h * h; // brightnes
+                        b = 1.0f - h * h; // brightness
                         HSBcol.fromHSB(h * 255, 0.8f * 255, b * 255); //convert hsb to rgb then make a Java Color
                         Color col = Color.FromArgb((int)HSBcol.rChan, (int)HSBcol.gChan, (int)HSBcol.bChan);
 
@@ -228,6 +237,8 @@ namespace Fractal
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
+            
+            
             int z, w;
 
             if (action)
@@ -266,8 +277,39 @@ namespace Fractal
                 mouseClicked = false;
 
                 update();
+
+                pictureBox1.Refresh();   
                 
             }
+        }
+
+        private void stateSave(double xs, double ys, double xe, double ye)
+        {
+            using (StreamWriter sw = File.CreateText("state.txt"))
+            {
+                sw.WriteLine(xs);
+                sw.WriteLine(ys);
+                sw.WriteLine(xe);
+                sw.WriteLine(ye);
+            }
+
+        }
+
+        private List<double> stateRead()
+        {
+         
+           List<double> l = new List<double>();
+
+            using (StreamReader sr = File.OpenText("state.txt"))
+            {
+                double s = 0;
+                while ((s = Convert.ToDouble(sr.ReadLine())) != 0)
+                {
+                    l.Add(s);
+                }
+            }
+
+            return l;
         }
     }
 }
