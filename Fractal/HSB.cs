@@ -15,7 +15,7 @@ namespace Fractal
             rChan = gChan = bChan = 0;
         }
 
-        public void fromHSB(float h, float s, float b)
+        public void fromHSB(float h, float s, float b, int num = 0)
         {
             float red = b;
             float green = b;
@@ -76,6 +76,40 @@ namespace Fractal
             gChan = (float)Math.Round(Math.Min(Math.Max(green, 0), 255));
             bChan = (float)Math.Round(Math.Min(Math.Max(blue, 0), 255));
 
+            if (num==1)
+            {
+                rChan = 55;
+                bChan = 225;
+            }
+            else if (num==2)
+            {
+                rChan = 40;
+            }
+            else if (num==3)
+            {
+                bChan = 225;
+            }
+            else if (num==4)
+            {
+                bChan = 125;
+            }
+            else if (num==5)
+            {
+                rChan = 175;
+            }
+            else if (num==6)
+            {
+                rChan = 35;
+                bChan = 175;
+            }
+            else if (num==7)
+            {
+                rChan = 225;
+            }
+            else if (num==8)
+            {
+                bChan = 225;
+            }
         }
     }
 }

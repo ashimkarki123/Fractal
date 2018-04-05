@@ -108,6 +108,13 @@ namespace Fractal
             }
         }
 
+        private void colorPallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            mandelbrot(new Random().Next(1, 8));
+            update();
+        }
+
         public void start()
         {
             action = false;
@@ -151,7 +158,7 @@ namespace Fractal
             }
         }
 
-        private void mandelbrot() // calculate all points
+        private void mandelbrot(int num = 0) // calculate all points
         {
             int x, y;
             float h, b, alt = 0.0f;
@@ -166,7 +173,7 @@ namespace Fractal
                     if (h != alt)
                     {
                         b = 1.0f - h * h; // brightness
-                        HSBcol.fromHSB(h * 255, 0.8f * 255, b * 255); //convert hsb to rgb then make a Java Color
+                        HSBcol.fromHSB(h * 255, 0.8f * 255, b * 255, num); //convert hsb to rgb then make a Java Color
                         Color col = Color.FromArgb((int)HSBcol.rChan, (int)HSBcol.gChan, (int)HSBcol.bChan);
 
                         pen = new Pen(col);

@@ -37,6 +37,8 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cloneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorFeaturesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorPallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +59,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
+            this.menuToolStripMenuItem,
+            this.colorFeaturesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(590, 24);
@@ -119,6 +122,21 @@
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // colorFeaturesToolStripMenuItem
+            // 
+            this.colorFeaturesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.colorPallToolStripMenuItem});
+            this.colorFeaturesToolStripMenuItem.Name = "colorFeaturesToolStripMenuItem";
+            this.colorFeaturesToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.colorFeaturesToolStripMenuItem.Text = "Color features";
+            // 
+            // colorPallToolStripMenuItem
+            // 
+            this.colorPallToolStripMenuItem.Name = "colorPallToolStripMenuItem";
+            this.colorPallToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.colorPallToolStripMenuItem.Text = "Color palette";
+            this.colorPallToolStripMenuItem.Click += new System.EventHandler(this.colorPallToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +168,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cloneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorFeaturesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorPallToolStripMenuItem;
     }
 }
 
