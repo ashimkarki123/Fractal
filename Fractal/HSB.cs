@@ -78,38 +78,31 @@ namespace Fractal
 
             if (num==1)
             {
-                rChan = 55;
-                bChan = 225;
+                rChan = 50;
+                bChan = 200;
             }
             else if (num==2)
             {
-                rChan = 40;
+                rChan = 100;
             }
             else if (num==3)
             {
-                bChan = 225;
+                bChan = 150;
             }
             else if (num==4)
             {
-                bChan = 125;
+                bChan = 100;
             }
             else if (num==5)
             {
-                rChan = 175;
+                rChan = 150;
+                bChan = 10;
             }
             else if (num==6)
             {
-                rChan = 35;
-                bChan = 175;
+                rChan = 255;
             }
-            else if (num==7)
-            {
-                rChan = 225;
-            }
-            else if (num==8)
-            {
-                bChan = 225;
-            }
+           
         }
     }
 }
